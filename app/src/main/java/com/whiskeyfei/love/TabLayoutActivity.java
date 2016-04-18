@@ -15,7 +15,7 @@ import com.whiskeyfei.love.widget.TabViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements TabItemView.OnTabLayoutClickListener{
+public class TabLayoutActivity extends AppCompatActivity implements TabItemView.OnTabLayoutClickListener{
 
     private String mTabNames[] = {"Chats", "Contacts", "Discover", "Me"};
     private TabViewPager mViewPager;
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements TabItemView.OnTab
 
     @Override
     public void onClick(View v, int position) {
-        Toast.makeText(MainActivity.this, "position:"+position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(TabLayoutActivity.this, "position:"+position, Toast.LENGTH_SHORT).show();
     }
 
 }
