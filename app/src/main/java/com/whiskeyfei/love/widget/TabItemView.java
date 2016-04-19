@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,20 +30,18 @@ public class TabItemView extends LinearLayout {
 
     public TabItemView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    private void init(Context context){
+        init(context,null,0);
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         mContext = context;
-        mView = LayoutInflater.from(getContext()).inflate(R.layout.tab_item, null);
+        mView = LayoutInflater.from(getContext()).inflate(R.layout.tab_item, this,true);
         mImageView = (ImageView) mView.findViewById(R.id.tab_icon);
         mTitle = (TextView) mView.findViewById(R.id.tab_text);
-        addView(mView);
-    }
-
-    @Override
-    public ViewGroup.LayoutParams getLayoutParams() {
-        return mView.getLayoutParams();
     }
 
     public void setText(String text) {

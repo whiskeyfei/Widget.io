@@ -1,10 +1,11 @@
-package com.whiskeyfei.love;
+package com.whiskeyfei.love.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.whiskeyfei.love.R;
 import com.whiskeyfei.love.adapter.BottomTabAdapter;
 import com.whiskeyfei.love.adapter.TabViewPagerAdapter;
 import com.whiskeyfei.love.utils.ListUtils;

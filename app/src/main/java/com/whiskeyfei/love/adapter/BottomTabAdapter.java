@@ -33,16 +33,16 @@ public class BottomTabAdapter extends TabAdpater{
         mTabTextNormalColor = ResourceUtil.getColor(R.color.tab_textcolor_normal);
     }
 
-    public TabItemView.OnTabLayoutClickListener mOnTabClickListener;
+//    public TabItemView.OnTabLayoutClickListener mOnTabClickListener;
 
     public void setData(List<String> list){
         mListNames = list;
         notifyDataSetChanged();
     }
 
-    public void setOnTabLayoutClickListener(TabItemView.OnTabLayoutClickListener listener ){
-        mOnTabClickListener = listener;
-    }
+//    public void setOnTabLayoutClickListener(TabItemView.OnTabLayoutClickListener listener ){
+//        mOnTabClickListener = listener;
+//    }
 
     public String getItemName(int position){
         return (mListNames != null) ? mListNames.get(position) : "";
