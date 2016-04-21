@@ -12,9 +12,5 @@ public abstract class TabAdpater {
 
     public abstract Object getItem(int position);
 
-    public void notifyDataSetChanged(){
-        for (int i = 0 ;i<getCount();i++) {
-            getView(i);
-        }
-    };
+    public void notifyDataSetChanged() {}
 }

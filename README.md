@@ -6,6 +6,8 @@
 
 仿写控件 | 控件信息
 ------- | -------
+ TabViewPager |  禁止滑动 ViewPager
+ TabJustLayout |  单独仿微信底部
  BottomTabLayout | 仿微信底部 ＋ ViewPager
 
 ## 效果

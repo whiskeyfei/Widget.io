@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.whiskeyfei.love.ui.CustomActivity;
 import com.whiskeyfei.love.ui.TabLayoutActivity;
 import com.whiskeyfei.love.ui.TabLayoutJustActivity;
 
@@ -37,6 +38,7 @@ public class StartActivity extends Activity implements AdapterView.OnItemClickLi
         mContext = getApplicationContext();
         mClasses.put(0, TabLayoutActivity.class);
         mClasses.put(1, TabLayoutJustActivity.class);
+        mClasses.put(2, CustomActivity.class);
         int len = mClasses.size();
         for (int i = 0; i < len; i++) {
             mListItems.add(mClasses.get(i).getName());

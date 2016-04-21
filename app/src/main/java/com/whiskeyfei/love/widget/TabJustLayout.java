@@ -80,13 +80,13 @@ public class TabJustLayout extends LinearLayout implements TabItemView.OnTabClic
         }
         for (int i = 0; i < count; i++) {
             boolean isSelected = (v == getChildAt(i));
-                TabItemView item = (TabItemView) mTabViews.get(i);
-                if (item != null){
-                    item.setTabIcon(mBottomTabAdapter.getIcon(isSelected,i));
-                    item.setTextColor(mBottomTabAdapter.getTextColor(isSelected));
-                }
-            if (isSelected && mTabLayoutClickListener != null){
-                mTabLayoutClickListener.onClick(v,i);
+            TabItemView item = (TabItemView) mTabViews.get(i);
+            if (item != null) {
+                item.setTabIcon(mBottomTabAdapter.getIcon(isSelected, i));
+                item.setTextColor(mBottomTabAdapter.getTextColor(isSelected));
+            }
+            if (isSelected && mTabLayoutClickListener != null) {
+                mTabLayoutClickListener.onClick(v, i);
             }
         }
     }

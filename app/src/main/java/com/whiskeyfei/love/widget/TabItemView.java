@@ -15,7 +15,6 @@ import com.whiskeyfei.love.R;
  * Created by whiskeyfei on 16/4/12.
  */
 public class TabItemView extends LinearLayout {
-    private View mView;
     private ImageView mImageView;
     private TextView mTitle;
     private Context mContext;
@@ -33,15 +32,12 @@ public class TabItemView extends LinearLayout {
         init(context);
     }
 
-    private void init(Context context){
-        init(context,null,0);
-    }
-
-    private void init(Context context, AttributeSet attrs, int defStyleAttr) {
+    private void init(Context context) {
         mContext = context;
-        mView = LayoutInflater.from(getContext()).inflate(R.layout.tab_item, this,true);
-        mImageView = (ImageView) mView.findViewById(R.id.tab_icon);
-        mTitle = (TextView) mView.findViewById(R.id.tab_text);
+        setOrientation(LinearLayout.VERTICAL);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.tab_item, this,true);
+        mImageView = (ImageView) view.findViewById(R.id.tab_icon);
+        mTitle = (TextView) view.findViewById(R.id.tab_text);
     }
 
     public void setText(String text) {

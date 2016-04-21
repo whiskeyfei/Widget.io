@@ -7,6 +7,7 @@ import com.whiskeyfei.love.R;
 import com.whiskeyfei.love.utils.ResourceUtil;
 import com.whiskeyfei.love.widget.TabItemView;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -33,11 +34,19 @@ public class BottomTabAdapter extends TabAdpater{
         mTabTextNormalColor = ResourceUtil.getColor(R.color.tab_textcolor_normal);
     }
 
+    public BottomTabAdapter(Context context,String [] objects){
+        this(context,Arrays.asList(objects));
+    }
+
+    public BottomTabAdapter(Context context,List<String> objects){
+        this(context);
+        mListNames = objects;
+    }
+
 //    public TabItemView.OnTabLayoutClickListener mOnTabClickListener;
 
     public void setData(List<String> list){
         mListNames = list;
-        notifyDataSetChanged();
     }
 
 //    public void setOnTabLayoutClickListener(TabItemView.OnTabLayoutClickListener listener ){
@@ -58,7 +67,7 @@ public class BottomTabAdapter extends TabAdpater{
 
     @Override
     public View getView(final int position) {
-        final TabItemView itemView = new TabItemView(mContext);
+        final TabItemView itemView = new TabItemView(getContext());
         itemView.setText(getItemName(position));
         boolean isZero = (position == 0);
         itemView.setTextColor(getTextColor(isZero));
@@ -75,12 +84,11 @@ public class BottomTabAdapter extends TabAdpater{
         return mListNames == null ? "" : mListNames.get(position);
     }
 
-    @Override
-    public void notifyDataSetChanged() {
-        super.notifyDataSetChanged();
-    }
-
     public int getTextColor(boolean isSelected) {
         return isSelected ? mTabTextSelectColor : mTabTextNormalColor;
+    }
+
+    public Context getContext(){
+        return mContext;
     }
 }
