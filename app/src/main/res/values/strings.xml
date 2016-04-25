@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LoveCopy.io</string>
+    <string name="action_settings">About</string>
 </resources>

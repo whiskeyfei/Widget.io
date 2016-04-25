@@ -36,8 +36,8 @@ public class TabLayoutActivity extends AppCompatActivity implements TabItemView.
         mViewPager.setScrollEnabled(false);
         mBottomTabLayout = (BottomTabLayout) findViewById(R.id.tabLayout);
 
-        mBottomTabAdapter = new BottomTabAdapter(getApplicationContext());
-        mBottomTabAdapter.setData(getList());
+        mBottomTabAdapter = new BottomTabAdapter(getApplicationContext(),getList());
+//        mBottomTabAdapter.setData(getList());
 
         mViewPager.setAdapter(new TabViewPagerAdapter(getApplicationContext(), getList()));
         mBottomTabLayout.setOnTabLayoutClickListener(this);

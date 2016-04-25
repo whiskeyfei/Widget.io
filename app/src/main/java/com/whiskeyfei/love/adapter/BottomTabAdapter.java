@@ -7,15 +7,13 @@ import com.whiskeyfei.love.R;
 import com.whiskeyfei.love.utils.ResourceUtil;
 import com.whiskeyfei.love.widget.TabItemView;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by whiskeyfei on 16/4/13.
  */
-public class BottomTabAdapter extends TabAdpater{
+public class BottomTabAdapter extends BaseTabAdapter<String>{
     private static final String TAG = "BottomTabAdapter";
-    private Context mContext;
 
     private int mTabIconRes[][] = {
             {R.drawable.icon_chats_normal, R.drawable.icon_chats_selected},
@@ -24,37 +22,16 @@ public class BottomTabAdapter extends TabAdpater{
             {R.drawable.icon_me_normal, R.drawable.icon_me_selected}
     };
 
-    private List<String> mListNames;
-
     private int mTabTextSelectColor, mTabTextNormalColor;
 
-    public BottomTabAdapter(Context context){
-        mContext = context;
+    public BottomTabAdapter(Context context, List<String> objects){
+        super(context,objects);
         mTabTextSelectColor = ResourceUtil.getColor(R.color.tab_textcolor_selected);
         mTabTextNormalColor = ResourceUtil.getColor(R.color.tab_textcolor_normal);
     }
 
-    public BottomTabAdapter(Context context,String [] objects){
-        this(context,Arrays.asList(objects));
-    }
-
-    public BottomTabAdapter(Context context,List<String> objects){
-        this(context);
-        mListNames = objects;
-    }
-
-//    public TabItemView.OnTabLayoutClickListener mOnTabClickListener;
-
-    public void setData(List<String> list){
-        mListNames = list;
-    }
-
-//    public void setOnTabLayoutClickListener(TabItemView.OnTabLayoutClickListener listener ){
-//        mOnTabClickListener = listener;
-//    }
-
     public String getItemName(int position){
-        return (mListNames != null) ? mListNames.get(position) : "";
+        return (mLists != null) ? mLists.get(position) : "";
     }
 
     public boolean hasData(){
@@ -75,20 +52,15 @@ public class BottomTabAdapter extends TabAdpater{
         return itemView;
     }
 
-    public int getCount(){
-        return (mListNames != null) ? mListNames.size() : 0;
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return mListNames == null ? "" : mListNames.get(position);
-    }
-
     public int getTextColor(boolean isSelected) {
         return isSelected ? mTabTextSelectColor : mTabTextNormalColor;
     }
 
-    public Context getContext(){
-        return mContext;
+    @Override
+    public void convert(TabItemView tabItemView, String item,int position) {
+        tabItemView.setText(item);
+        boolean isZero = (position == 0);
+        tabItemView.setTextColor(getTextColor(isZero));
+        tabItemView.setTabIcon(getIcon(isZero,position));
     }
 }
