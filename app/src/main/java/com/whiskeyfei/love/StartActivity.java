@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.whiskeyfei.love.ui.AdapterActivity;
+import com.whiskeyfei.love.ui.CombinationViewActivity;
 import com.whiskeyfei.love.ui.CustomActivity;
 import com.whiskeyfei.love.ui.TabLayoutActivity;
 import com.whiskeyfei.love.ui.TabLayoutJustActivity;
@@ -46,6 +47,7 @@ public class StartActivity extends AppCompatActivity implements AdapterView.OnIt
         mClasses.put(1, TabLayoutJustActivity.class);
         mClasses.put(2, CustomActivity.class);
         mClasses.put(3, AdapterActivity.class);
+        mClasses.put(4, CombinationViewActivity.class);
         int len = mClasses.size();
         for (int i = 0; i < len; i++) {
             mListItems.add(mClasses.get(i).getName());

@@ -23,6 +23,7 @@
         <activity android:name=".ui.TabLayoutJustActivity"/>
         <activity android:name=".ui.CustomActivity"/>
         <activity android:name=".ui.AdapterActivity"/>
+        <activity android:name=".ui.CombinationViewActivity"/>
     </application>
 
 </manifest>
