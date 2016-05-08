@@ -1,4 +1,4 @@
-## LoveCopy.io
+## Widget.io
 
 记录平时仿写控件
 
@@ -9,10 +9,7 @@
  TabViewPager |  禁止滑动 ViewPager
  TabJustLayout |  单独仿微信底部
  BottomTabLayout | 仿微信底部 ＋ ViewPager
-
-## 效果
-
-![](http://7xol9p.com1.z0.glb.clouddn.com/lovecopy01.png)
+ CombinationView | FrameLayout Custom view
 
 # License
  Copyright 2016 whiskeyfei <whiskeyfei@gmail.com><br/>
