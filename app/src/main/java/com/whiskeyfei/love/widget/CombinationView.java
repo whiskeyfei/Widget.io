@@ -61,7 +61,7 @@ public class CombinationView extends FrameLayout {
 
 	private void addTextLayout() {
 		 mTextLayout = new LinearLayout(mContext);
-		mTextLayout.setFocusable(false);
+		 mTextLayout.setFocusable(false);
 		 LayoutParams params = new LayoutParams(mParams.width, LayoutParams.WRAP_CONTENT);
 		 params.gravity = Gravity.BOTTOM;
 		 mTextLayout.setOrientation(LinearLayout.VERTICAL);

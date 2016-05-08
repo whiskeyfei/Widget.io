@@ -24,6 +24,7 @@
         <activity android:name=".ui.CustomActivity"/>
         <activity android:name=".ui.AdapterActivity"/>
         <activity android:name=".ui.CombinationViewActivity"/>
+        <activity android:name=".ui.RLayoutViewActivity"/>
     </application>
 
 </manifest>
