@@ -19,6 +19,7 @@ import com.whiskeyfei.love.ui.CustomActivity;
 import com.whiskeyfei.love.ui.RLayoutViewActivity;
 import com.whiskeyfei.love.ui.TabLayoutActivity;
 import com.whiskeyfei.love.ui.TabLayoutJustActivity;
+import com.whiskeyfei.love.ui.TextViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,7 @@ public class StartActivity extends AppCompatActivity implements AdapterView.OnIt
         mClasses.put(3, AdapterActivity.class);
         mClasses.put(4, CombinationViewActivity.class);
         mClasses.put(5, RLayoutViewActivity.class);
+        mClasses.put(6, TextViewActivity.class);
         int len = mClasses.size();
         for (int i = 0; i < len; i++) {
             mListItems.add(mClasses.get(i).getName());
