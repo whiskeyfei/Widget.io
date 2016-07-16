@@ -1,9 +1,11 @@
 package com.whiskeyfei.love.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import com.whiskeyfei.love.R;
+import com.whiskeyfei.love.model.ItemInfo;
 import com.whiskeyfei.love.utils.ResourceUtil;
 import com.whiskeyfei.love.widget.TabItemView;
 
@@ -12,40 +14,47 @@ import java.util.List;
 /**
  * Created by whiskeyfei on 16/4/13.
  */
-public class BottomTabAdapter extends BaseTabAdapter<String>{
-    private static final String TAG = "BottomTabAdapter";
+public class BottomTabAdapter extends BaseTabAdapter<ItemInfo>{
 
-    private int mTabIconRes[][] = {
-            {R.drawable.icon_chats_normal, R.drawable.icon_chats_selected},
-            {R.drawable.icon_contacts_normal, R.drawable.icon_contacts_selected},
-            {R.drawable.icon_discover_normal, R.drawable.icon_discover_selected},
-            {R.drawable.icon_me_normal, R.drawable.icon_me_selected}
-    };
+    private OnItemClickListener mOnItemClickListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int tagType);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener selectViewClickListener) {
+        mOnItemClickListener = selectViewClickListener;
+    }
+
+    private static final String TAG = "BottomTabAdapter";
 
     private int mTabTextSelectColor, mTabTextNormalColor;
 
-    public BottomTabAdapter(Context context, List<String> objects){
+    public BottomTabAdapter(Context context, List<ItemInfo> objects){
         super(context,objects);
         mTabTextSelectColor = ResourceUtil.getColor(R.color.tab_textcolor_selected);
         mTabTextNormalColor = ResourceUtil.getColor(R.color.tab_textcolor_normal);
     }
 
-    public String getItemName(int position){
-        return (mLists != null) ? mLists.get(position) : "";
-    }
-
-    public boolean hasData(){
-        return mTabIconRes != null;
-    }
-
     public int getIcon(boolean selected,int position){
-        return selected ? mTabIconRes[position][1] : mTabIconRes[position][0];
+        ItemInfo info  = mLists.get(position);
+        if (info == null){
+            return 0;
+        }
+        return selected ? info.icons[1] : info.icons[0];
     }
 
     @Override
     public View getView(final int position) {
         final TabItemView itemView = new TabItemView(getContext());
-        itemView.setText(getItemName(position));
+        final ItemInfo info = mLists.get(position);
+        if (info != null){
+            itemView.setText(info.name);
+            itemView.setTag(info.type);
+        }else{
+            Log.e(TAG,"getView() -> info is null");
+        }
+
         boolean isZero = (position == 0);
         itemView.setTextColor(getTextColor(isZero));
         itemView.setTabIcon(getIcon(isZero,position));
@@ -57,10 +66,17 @@ public class BottomTabAdapter extends BaseTabAdapter<String>{
     }
 
     @Override
-    public void convert(TabItemView tabItemView, String item,int position) {
-        tabItemView.setText(item);
+    public void convert(TabItemView tabItemView, ItemInfo item,int position) {
+        tabItemView.setText(item.name);
         boolean isZero = (position == 0);
         tabItemView.setTextColor(getTextColor(isZero));
         tabItemView.setTabIcon(getIcon(isZero,position));
+    }
+
+    @Override
+    public void onClick(View view, int type) {
+        if (mOnItemClickListener != null){
+            mOnItemClickListener.onItemClick(view,type);
+        }
     }
 }

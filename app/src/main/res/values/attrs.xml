@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TopBar">
+        <attr name="topBar_title" format="string" />
+        <attr name="topBar_titleTextSize" format="dimension" />
+        <attr name="topBar_titleTextColor" format="color" />
+        <attr name="topBar_leftTextColor" format="color" />
+        <attr name="topBar_barColor" format="color|reference" />
+        <attr name="topBar_leftBackground" format="reference|color" />
+        <attr name="topBar_leftText" format="string" />
+        <attr name="topBar_rightTextColor" format="color" />
+        <attr name="topBar_rightBackground" format="reference|color" />
+        <attr name="topBar_rightText" format="string" />
+    </declare-styleable>
+
+    <!--<declare-styleable name="ChangeColorIconWithText">-->
+        <!--<attr name="icon" format="reference"></attr>-->
+        <!--<attr name="color" format="color"></attr>-->
+        <!--<attr name="text" format="string"></attr>-->
+        <!--<attr name="text_size" format="dimension"></attr>-->
+    <!--</declare-styleable>-->
+
+</resources>

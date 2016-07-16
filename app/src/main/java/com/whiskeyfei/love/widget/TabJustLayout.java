@@ -68,14 +68,10 @@ public class TabJustLayout extends LinearLayout implements TabItemView.OnTabClic
         init(getContext());
     }
 
-    public void setOnTabLayoutClickListener(TabItemView.OnTabLayoutClickListener listener){
-        mTabLayoutClickListener = listener;
-    }
-
     @Override
     public void onClick(View v) {
         int count = getChildCount();
-        if (mTabViews == null || mBottomTabAdapter == null || !mBottomTabAdapter.hasData() || mBottomTabAdapter.getCount() <= 0){
+        if (mTabViews == null || mBottomTabAdapter == null || mBottomTabAdapter.getCount() <= 0){
             return;
         }
         for (int i = 0; i < count; i++) {
@@ -85,8 +81,8 @@ public class TabJustLayout extends LinearLayout implements TabItemView.OnTabClic
                 item.setTabIcon(mBottomTabAdapter.getIcon(isSelected, i));
                 item.setTextColor(mBottomTabAdapter.getTextColor(isSelected));
             }
-            if (isSelected && mTabLayoutClickListener != null) {
-                mTabLayoutClickListener.onClick(v, i);
+            if (isSelected) {
+                mBottomTabAdapter.onClick(v, (Integer) v.getTag());
             }
         }
     }

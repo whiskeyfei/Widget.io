@@ -44,12 +44,6 @@ public class BottomTabLayout extends LinearLayout implements TabItemView.OnTabCl
             throw new IllegalArgumentException("mBottomTabAdapter is null");
         }
 
-//        TabViewPagerAdapter adpater = (TabViewPagerAdapter) mViewPager.getAdapter();
-//
-//        if (adpater == null){
-//            throw new IllegalArgumentException("view pager adpater is null");
-//        }
-
         if (mTabViews == null){
             mTabViews = new SparseArray<>();
         }
@@ -86,7 +80,7 @@ public class BottomTabLayout extends LinearLayout implements TabItemView.OnTabCl
     @Override
     public void onClick(View v) {
         int count = getChildCount();
-        if (mTabViews == null || mBottomTabAdapter == null || !mBottomTabAdapter.hasData() || mBottomTabAdapter.getCount() <= 0){
+        if (mTabViews == null || mBottomTabAdapter == null || mBottomTabAdapter.getCount() <= 0){
             return;
         }
         for (int i = 0; i < count; i++) {

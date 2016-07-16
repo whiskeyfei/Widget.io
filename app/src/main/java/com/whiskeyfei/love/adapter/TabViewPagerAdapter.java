@@ -15,12 +15,10 @@ import java.util.List;
 public class TabViewPagerAdapter extends PagerAdapter {
     private List<String> mList;
     private Context mContext;
-    private int mSize;
 
     public TabViewPagerAdapter(Context context, List<String> list) {
         mContext = context;
         mList = list;
-        mSize = ListUtils.getCount(list);
     }
 
     @Override

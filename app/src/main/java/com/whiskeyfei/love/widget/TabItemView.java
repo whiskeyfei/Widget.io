@@ -45,7 +45,10 @@ public class TabItemView extends LinearLayout {
     }
 
     public void setTabIcon(int tabIcon) {
-        mImageView.setImageResource(tabIcon);
+        if(tabIcon != 0 && mImageView != null){
+            mImageView.setImageResource(tabIcon);
+        }
+
     }
 
     public void setTextColor(int textColor) {
