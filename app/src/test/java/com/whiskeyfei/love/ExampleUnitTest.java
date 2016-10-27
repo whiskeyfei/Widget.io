@@ -8,6 +8,7 @@ import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.Maps;
+import com.whiskeyfei.love.design.prototype.RestrationInfo;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,6 +25,35 @@ public class ExampleUnitTest {
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void testClone(){
+        RestrationInfo info = new RestrationInfo();
+        info.setId("1");
+        info.setName("1");
+        info.setAge("1");
+        info.show();
+
+
+        RestrationInfo info1 = (RestrationInfo) info.clone();
+        info1.show();
+        int array1[] = new int[5];
+        array1[0] = 1;
+        array1[1] = 2;
+
+        int array2[] = new int[array1.length];
+        System.arraycopy(array1,0,array2,0,array1.length);
+
+
+        for (int i = 0;i<array1.length;i++){
+            System.out.print("array1:"+array1[i]);
+        }
+
+        for (int i = 0;i<array2.length;i++){
+            System.out.println("array2:"+array2[i]);
+        }
+    }
+
 
     @Test
     public void test1(){
