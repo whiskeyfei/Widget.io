@@ -5,9 +5,16 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
-import com.google.common.base.Strings;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.Maps;
+import com.whiskeyfei.love.design.bridge.Computer;
+import com.whiskeyfei.love.design.bridge.Departments;
+import com.whiskeyfei.love.design.bridge.MathAdvance;
+import com.whiskeyfei.love.design.bridge.MathAnalysis;
+import com.whiskeyfei.love.design.bridge.Mathematics;
+import com.whiskeyfei.love.design.builder.StudentA;
+import com.whiskeyfei.love.design.builder.StudentB;
+import com.whiskeyfei.love.design.builder.Teacher;
 import com.whiskeyfei.love.design.prototype.RestrationInfo;
 
 import org.junit.Assert;
@@ -24,6 +31,30 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
+    }
+
+    @Test
+    public void testBuilder(){
+        com.whiskeyfei.love.design.builder.Student s1 = new StudentA();
+        com.whiskeyfei.love.design.builder.Student s2 = new StudentB();
+
+        Teacher teacher = new Teacher();
+        teacher.add(s1);
+        teacher.add(s2);
+        teacher.start();
+
+    }
+
+    @Test
+    public void testBridge() {
+        Departments departments;
+        departments = new Computer();
+        departments.setMath(new MathAnalysis());
+        departments.select();
+
+        departments = new Mathematics();
+        departments.setMath(new MathAdvance());
+        departments.select();
     }
 
     @Test

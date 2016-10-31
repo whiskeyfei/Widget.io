@@ -15,9 +15,11 @@ import com.whiskeyfei.love.R;
 //学习资料demo
 public class TopBar extends RelativeLayout {
 
-    private  int mBarColor;
-    private Button mLeftButton, mRightButton;
-    private TextView mTitleView;
+    private int mBarColor;
+    private final Button mLeftButton;
+
+    private final Button mRightButton;
+    private final TextView mTitleView;
 
     private LayoutParams mLeftParams, mTitlepParams, mRightParams;
 
@@ -39,21 +41,21 @@ public class TopBar extends RelativeLayout {
     // 映射传入的接口对象
     private topbarClickListener mListener;
 
-    public TopBar(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-    }
-
     public TopBar(Context context) {
-        super(context);
+        this(context,null);
     }
 
     public TopBar(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs,0);
+    }
+
+    public TopBar(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
         // 通过这个方法，将你在atts.xml中定义的declare-styleable
         // 的所有属性的值存储到TypedArray中
-        TypedArray ta = context.obtainStyledAttributes(attrs,R.styleable.TopBar);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TopBar);
         // 从TypedArray中取出对应的值来为要设置的属性赋值
-        mBarColor = ta.getResourceId(R.styleable.TopBar_topBar_barColor,-1);
+        mBarColor = ta.getResourceId(R.styleable.TopBar_topBar_barColor, -1);
         mLeftTextColor = ta.getColor(
                 R.styleable.TopBar_topBar_leftTextColor, 0);
         mLeftBackground = ta.getDrawable(
@@ -123,7 +125,7 @@ public class TopBar extends RelativeLayout {
             @Override
             public void onClick(View v) {
                 if (mListener != null)
-                mListener.rightClick();
+                    mListener.rightClick();
             }
         });
 
@@ -132,7 +134,7 @@ public class TopBar extends RelativeLayout {
             @Override
             public void onClick(View v) {
                 if (mListener != null)
-                mListener.leftClick();
+                    mListener.leftClick();
             }
         });
     }

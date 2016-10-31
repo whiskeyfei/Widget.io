@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.whiskeyfei.love">
 
+    <uses-permission android:name="android.permission.READ_MEDIA_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".app.AppApplication"
         android:allowBackup="true"
@@ -26,6 +28,8 @@
         <activity android:name=".ui.CombinationViewActivity"/>
         <activity android:name=".ui.RLayoutViewActivity"/>
         <activity android:name=".ui.TextViewActivity"/>
+        <activity android:name=".ui.VideoViewActivity"/>
+        <activity android:name="fm.jiecao.jcvideoplayer_lib.JCFullScreenActivity"/>
     </application>
 
 </manifest>
