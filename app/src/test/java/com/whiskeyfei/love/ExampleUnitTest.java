@@ -15,6 +15,9 @@ import com.whiskeyfei.love.design.bridge.Mathematics;
 import com.whiskeyfei.love.design.builder.StudentA;
 import com.whiskeyfei.love.design.builder.StudentB;
 import com.whiskeyfei.love.design.builder.Teacher;
+import com.whiskeyfei.love.design.composite.ConcreteDepartment;
+import com.whiskeyfei.love.design.composite.StudentOffice;
+import com.whiskeyfei.love.design.composite.TeacherOffice;
 import com.whiskeyfei.love.design.prototype.RestrationInfo;
 
 import org.junit.Assert;
@@ -55,6 +58,27 @@ public class ExampleUnitTest {
         departments = new Mathematics();
         departments.setMath(new MathAdvance());
         departments.select();
+    }
+
+    @Test
+    public void testComposite(){
+        ConcreteDepartment root = new ConcreteDepartment("我的大学");
+        root.add(new StudentOffice("学生管理处"));
+        root.add(new TeacherOffice("教师管理处"));
+
+        ConcreteDepartment college = new ConcreteDepartment("计算机学院");
+        college.add(new StudentOffice("计算机学生管理处"));
+        college.add(new TeacherOffice("计算机教师管理处"));
+        root.add(college);
+
+        ConcreteDepartment college1 = new ConcreteDepartment("物理学院");
+        college1.add(new StudentOffice("物理学院学生管理处"));
+        college1.add(new TeacherOffice("物理学院教师管理处"));
+        root.add(college1);
+
+        root.show(1);
+        college.reportWork();
+        root.reportWork();
     }
 
     @Test

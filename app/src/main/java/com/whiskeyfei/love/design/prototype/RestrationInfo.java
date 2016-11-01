@@ -2,7 +2,7 @@ package com.whiskeyfei.love.design.prototype;
 
 /**
  * Created by whiskeyfei on 16/10/27.
- * clone
+ * 原型模式 clone
  */
 public class RestrationInfo implements Cloneable{
     private String id;
