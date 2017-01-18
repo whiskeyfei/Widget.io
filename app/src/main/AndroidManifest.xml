@@ -29,7 +29,9 @@
         <activity android:name=".ui.RLayoutViewActivity"/>
         <activity android:name=".ui.TextViewActivity"/>
         <activity android:name=".ui.VideoViewActivity"/>
+        <activity android:name=".ui.CoordinatorLayoutActivity"/>
         <activity android:name="fm.jiecao.jcvideoplayer_lib.JCFullScreenActivity"/>
+        <activity android:name=".ui.LayoutInflaterActivity"/>
     </application>
 
 </manifest>

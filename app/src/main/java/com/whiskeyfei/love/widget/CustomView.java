@@ -137,5 +137,20 @@ public class CustomView extends View {
         canvas.drawText(mTitle, x, y, mTextPaint);
     }
 
+    /**
+     * onLayout()
+     *
+     *
+     *
+     * @param changed
+     * @param left
+     * @param top
+     * @param right
+     * @param bottom
+     */
 
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+    }
 }

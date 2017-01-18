@@ -15,7 +15,9 @@ import android.widget.ListView;
 
 import com.whiskeyfei.love.ui.AdapterActivity;
 import com.whiskeyfei.love.ui.CombinationViewActivity;
+import com.whiskeyfei.love.ui.CoordinatorLayoutActivity;
 import com.whiskeyfei.love.ui.CustomActivity;
+import com.whiskeyfei.love.ui.LayoutInflaterActivity;
 import com.whiskeyfei.love.ui.RLayoutViewActivity;
 import com.whiskeyfei.love.ui.TabLayoutActivity;
 import com.whiskeyfei.love.ui.TabLayoutJustActivity;
@@ -54,6 +56,8 @@ public class StartActivity extends AppCompatActivity implements AdapterView.OnIt
         mClasses.put(5, RLayoutViewActivity.class);
         mClasses.put(6, TextViewActivity.class);
         mClasses.put(7, VideoViewActivity.class);
+        mClasses.put(8, CoordinatorLayoutActivity.class);
+        mClasses.put(9, LayoutInflaterActivity.class);
         int len = mClasses.size();
         for (int i = 0; i < len; i++) {
             mListItems.add(mClasses.get(i).getName());

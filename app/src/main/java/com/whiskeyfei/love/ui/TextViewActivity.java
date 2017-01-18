@@ -1,8 +1,12 @@
 package com.whiskeyfei.love.ui;
 
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.whiskeyfei.love.R;
+import com.whiskeyfei.love.item.ImageViewItem;
+import com.whiskeyfei.love.item.TextViewItem;
 import com.whiskeyfei.love.widget.TopBar;
 
 /**
@@ -23,6 +27,13 @@ public class TextViewActivity extends BaseActivity implements TopBar.topbarClick
         mTopbar.setOnTopbarClickListener(this);
         mTopbar.setButtonVisable(0, true);
         mTopbar.setButtonVisable(1, false);
+            TextViewItem item = new TextViewItem(0);
+        View v = (View) item.buildUI(getApplicationContext());
+        ((ViewGroup)findViewById(R.id.root)).addView(v);
+
+        ImageViewItem  item2 = new ImageViewItem(0);
+        ((ViewGroup)findViewById(R.id.root)).addView((View) item2.buildUI(getApplicationContext()));
+
     }
 
     @Override
