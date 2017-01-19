@@ -20,7 +20,7 @@ import java.util.List;
 public class CircleView extends View{
 
     // 颜色表(注意: 此处定义颜色使用的是ARGB，带Alpha通道的)
-    private int[] mColors = {0xFFCCFF00, 0xFF6495ED, 0xFFE32636, 0xFF800000, 0xFF808000, 0xFFFF8C69, 0xFF808080,
+    public static int[] mColors = {0xFFCCFF00, 0xFF003300, 0xFFE32636, 0xFF800000, 0xFF9999FF, 0xFFFF8C69, 0xFFCCFF33,
             0xFFE6B800, 0xFF7CFC00};
     // 饼状图初始绘制角度
     private float mStartAngle = 0;
@@ -65,7 +65,7 @@ public class CircleView extends View{
         mWidth = getWidth();
         mHeight = getHeight();
         canvas.translate(mWidth/2,mHeight/2); // 将画布坐标原点移动到中心位置
-        float r = 300;//半径
+        float r = (float) (Math.min(mWidth, mHeight) / 2 * 0.8);  // 饼状图半径
         RectF rect = new RectF(-r, -r, r, r);
         mPaint.setColor(Color.WHITE);
         canvas.drawRect(rect,mPaint);
@@ -81,14 +81,11 @@ public class CircleView extends View{
     }
 
     private void initData() {
+        //计算出总和
         float sumValue = 0;
         for (int i = 0; i < mData.size(); i++) {
             PieData pie = mData.get(i);
-
             sumValue += pie.getValue();       //计算数值和
-
-            int j = i % mColors.length;       //设置颜色
-            pie.setColor(mColors[j]);
         }
 
         float sumAngle = 0;

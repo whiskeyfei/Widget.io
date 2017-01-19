@@ -2,6 +2,9 @@ package com.whiskeyfei.love.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,8 @@ import com.whiskeyfei.love.widget.CircleView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.whiskeyfei.love.widget.CircleView.mColors;
 
 
 /**
@@ -32,8 +37,10 @@ import java.util.List;
  */
 
 public class LayoutInflaterActivity extends Activity {
+
     private LinearLayout mLinearLayout;
     CircleView mCircleView;
+    int angle = 45;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,31 +48,52 @@ public class LayoutInflaterActivity extends Activity {
 
 //        test1();
 //        test2();
-        test3();
+//        test3();
+        test4();
     }
 
+    /**
+     * 绘制扇形图
+     */
     private void test3(){
         setContentView(R.layout.myview);
         mCircleView = (CircleView) findViewById(R.id.circle_view);
         mCircleView.setData(getData());
-        mCircleView.setStartAngle(45);
+        mCircleView.setStartAngle(angle);
+    }
+
+    private Handler mHandler = new Handler(Looper.myLooper()){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            mCircleView.setStartAngle(angle);
+            angle += 5;
+            mHandler.sendEmptyMessageDelayed(1,25);
+        }
+    };
+
+
+    /**
+     * 模拟大转盘
+     */
+    private void test4(){
+        test3();
+        mHandler.sendEmptyMessage(1);
     }
 
     private List<PieData> getData(){
         List<PieData> datas = new ArrayList<>();
-        PieData p1 = new PieData("",1);
-        PieData p2 = new PieData("",2);
-        PieData p3 = new PieData("",3);
-        PieData p4 = new PieData("",4);
-        datas.add(p1);
-        datas.add(p2);
-        datas.add(p3);
-        datas.add(p4);
+        for (int i=0;i< 20;i++){
+            PieData p1 = new PieData("",5);
+            int j = i % mColors.length;       //设置颜色
+            p1.setColor(mColors[j]);
+            datas.add(p1);
+        }
         return datas;
     }
 
     /**
-     * use simplelayout
+     * 自定义 SimpleLayout 布局
      */
     private void test2(){
         setContentView(R.layout.simplelayout);
