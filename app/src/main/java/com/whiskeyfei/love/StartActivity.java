@@ -31,6 +31,7 @@ import java.util.List;
  * Created by whiskeyfei on 16/4/18.
  */
 public class StartActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    private static final String TAG = "StartActivity";
     private SparseArray<Class<?>> mClasses = new SparseArray<>();
     private List<String> mListItems = new ArrayList<>();
     private ListView mListView;
