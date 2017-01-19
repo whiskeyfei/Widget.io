@@ -1,15 +1,14 @@
-# Widget.io
+## Widget.io
 
-Records usually imitate demo and widgets.
-[中文介绍](README_CN.md)
+记录平时仿写控件
 
-### Content
+### 记录
 
-demo | info
+仿写控件 | 控件信息
 ------- | -------
- TabViewPager |  not slide ViewPager
- TabJustLayout |  WeChat tab layout
- BottomTabLayout | WeChat tab layout ＋ ViewPager
+ TabViewPager |  禁止滑动 ViewPager
+ TabJustLayout |  单独仿微信底部
+ BottomTabLayout | 仿微信底部 ＋ ViewPager
  CombinationView | FrameLayout Custom view
 
 # License
