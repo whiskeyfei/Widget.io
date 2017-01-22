@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".StartActivity">
+        <activity android:name=".ui.LayoutInflaterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -31,7 +31,7 @@
         <activity android:name=".ui.VideoViewActivity"/>
         <activity android:name=".ui.CoordinatorLayoutActivity"/>
         <activity android:name="fm.jiecao.jcvideoplayer_lib.JCFullScreenActivity"/>
-        <activity android:name=".ui.LayoutInflaterActivity"/>
+        <!--<activity android:name=".ui.LayoutInflaterActivity"/>-->
     </application>
 
 </manifest>

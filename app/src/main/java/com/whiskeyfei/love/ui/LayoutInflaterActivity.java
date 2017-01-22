@@ -20,7 +20,6 @@ import java.util.List;
 
 import static com.whiskeyfei.love.widget.CircleView.mColors;
 
-
 /**
  * 问题：
  * layout_width和layout_height什么情况下其作用？
@@ -49,7 +48,12 @@ public class LayoutInflaterActivity extends Activity {
 //        test1();
 //        test2();
 //        test3();
-        test4();
+//        test4();
+        test5();
+    }
+
+    private void test5(){
+        setContentView(R.layout.mycanvasview);
     }
 
     /**
@@ -72,9 +76,8 @@ public class LayoutInflaterActivity extends Activity {
         }
     };
 
-
     /**
-     * 模拟大转盘
+     * 模拟大转盘，只是练习使用，可以使用动画效果做到
      */
     private void test4(){
         test3();

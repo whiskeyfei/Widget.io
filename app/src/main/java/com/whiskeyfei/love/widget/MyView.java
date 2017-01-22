@@ -45,7 +45,7 @@ public class MyView extends View {
         super.onDraw(canvas);
         canvas.drawColor(Color.YELLOW);
         mPaint.setColor(Color.WHITE);
-        mPaint.setStrokeWidth(15f);
+        mPaint.setStrokeWidth(15f);  //设置画笔宽度为15px
         canvas.drawRect(0, 0, getWidth()-10, getHeight() -10, mPaint);
         drawText(canvas);
         drawPoint(canvas);
@@ -173,7 +173,7 @@ public class MyView extends View {
         canvas.drawCircle(800,150,60,mPaint);
 
         // 填充
-        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setStyle(Paint.Style.FILL);//设置画笔模式为填充
         canvas.drawCircle(800,400,60,mPaint);
 
         // 描边加填充
